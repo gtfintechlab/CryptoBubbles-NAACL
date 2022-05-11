@@ -1,0 +1,45 @@
+name: MBHN_NAACL
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=1_gnu
+  - ca-certificates=2020.12.5=ha878542_0
+  - certifi=2020.12.5=py36h5fab9bb_1
+  - ld_impl_linux-64=2.35.1=hea4e1c9_2
+  - libffi=3.3=h58526e2_2
+  - libgcc-ng=9.3.0=h2828fa1_18
+  - libgomp=9.3.0=h2828fa1_18
+  - libstdcxx-ng=9.3.0=h6de172a_18
+  - ncurses=6.2=h58526e2_4
+  - openssl=1.1.1k=h7f98852_0
+  - pip=21.0.1=pyhd8ed1ab_0
+  - python=3.6.13=hffdb5ce_0_cpython
+  - python_abi=3.6=1_cp36m
+  - readline=8.0=he28a2e2_2
+  - setuptools=49.6.0=py36h5fab9bb_3
+  - sqlite=3.35.4=h74cdb3f_0
+  - tk=8.6.10=h21135ba_1
+  - wheel=0.36.2=pyhd3deb0d_0
+  - xz=5.2.5=h516909a_1
+  - zlib=1.2.11=h516909a_1010
+  - pip:
+    - dataclasses==0.8
+    - focal-loss-torch==0.0.7
+    - geoopt==0.1.2
+    - joblib==1.0.1
+    - numpy==1.19.5
+    - pandas==1.1.5
+    - pillow==8.3.1
+    - python-dateutil==2.8.2
+    - pytz==2021.1
+    - scikit-learn==0.24.2
+    - scipy==1.5.4
+    - six==1.16.0
+    - sklearn==0.0
+    - threadpoolctl==2.2.0
+    - torch==1.9.0
+    - torchsampler==0.1.1
+    - torchvision==0.10.0
+    - typing-extensions==3.10.0.1
