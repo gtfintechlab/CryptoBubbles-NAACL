@@ -53,7 +53,7 @@ Similarly, make data for `val` and `test` split.
 
 ## Run
 
-Execute the following python command to train GPolS: 
+Execute the following python command to train MBHN: 
 ```python
 python main.py --do_sampling --focal_loss
 ```
