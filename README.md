@@ -1,4 +1,4 @@
-# Cryptocoin Bubble Detection: A New Dataset, Task & Hyperbolic Models
+# Cryptocurrency Bubble Detection: A New Stock Market Dataset, Financial Task & Hyperbolic Models
 
 This is an official pytorch implementation of our NAACL 2022 paper Cryptocoin Bubble Detection: A New Dataset, Task & Hyperbolic Models. In this repository, we provide PyTorch code for training our proposed MBHN model. We also provide scripts to develop data from the provided raw data. 
 
@@ -6,7 +6,8 @@ If you find this project useful in your research, please use the following BibTe
 
 ```c
 @inproceedings{sawhney-etal-2022-cryoto,
-    title = "Cryptocoin Bubble Detection: A New Dataset, Task & Hyperbolic Models",
+    title = "Cryptocurrency Bubble Detection: A New Stock Market Dataset, Financial
+Task & Hyperbolic Models",
     author = "Sawhney, Ramit  and
       Agarwal, Shivam  and
       Mittal, Vivek and
