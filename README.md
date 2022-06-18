@@ -39,7 +39,7 @@ conda env create -f environment.yml
 
 ## Dataset and Preprocessing 
 
-Download the dataset from [here](https://drive.google.com/drive/u/1/folders/1cI_Hbz0GRoRipJssFVkf9j1suqwK0nmL) and unzip all the three folders.
+Download the dataset from [here](https://zenodo.org/record/6556673#.Yq4UIOxBy3I) and unzip all the three folders.
 
 ### Generate data from raw data
 
