@@ -7,11 +7,10 @@ import pandas as pd
 import datetime
 import random
 import numpy as np
-from tqdm import tqdm_notebook
+from tqdm import tqdm
 import os
 import shutil
 import pandas as pd
-from tqdm import notebook
 import torch
 from transformers import AutoModel, AutoTokenizer 
 from collections import defaultdict
@@ -99,7 +98,7 @@ c3 = []
 sss= 0
 
 
-for idx in tqdm_notebook(len(data)):
+for idx in tqdm(range(len(data))):
     sample = data[idx]
     coin = sample["coin_name"]
     date_list = sample["lookback_dates"]
