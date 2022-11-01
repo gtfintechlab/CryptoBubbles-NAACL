@@ -8,8 +8,9 @@ import logging
 import copy
 from utils import summarize_results, callback_get_label
 from focal_loss.focal_loss import FocalLoss
-from torchsampler import ImbalancedDatasetSampler
-from dataset import BubbleData
+#from torchsampler import ImbalancedDatasetSampler
+from ImbalancedDatasetSampler import *
+from dataset import BubbleData, BubbleDatav2
 from torch.utils.data import DataLoader
 from models import *
 from geoopt.optim import RiemannianAdam
@@ -149,13 +150,18 @@ data_used = {
     "val":  [f"val_data_price_only_lookback_{num_lookback}_lookahead_{args.num_lookahead}_stride_{args.stride}.pkl",
               f"val_data_text_only_lookback_{num_lookback}_lookahead_{args.num_lookahead}_stride_{args.stride}.pkl"]
 }
-trainset = BubbleData(
+
+print('train: price_data_path: ', data_used["train"][0], ', embed_folder_path: ', data_used["train"][1])
+#trainset = BubbleData(
+trainset = BubbleDatav2(
     price_data_path=data_used["train"][0],
     load_embeds=load_embeds,
     embed_folder_path=data_used["train"][1],
 )
 
-valset = BubbleData(
+print('val: price_data_path: ', data_used["val"][0], ', embed_folder_path: ', data_used["val"][1])
+#valset = BubbleData(
+valset = BubbleDatav2(
     price_data_path=data_used["val"][0],
     load_embeds=load_embeds,
     embed_folder_path=data_used["val"][1],
@@ -164,7 +170,7 @@ valset = BubbleData(
 if args.do_sampling:
     trainloader = DataLoader(
         trainset,
-        sampler=ImbalancedDatasetSampler(
+        sampler = ImbalancedDatasetSampler(
             trainset, callback_get_label=callback_get_label
         ),
         batch_size=batch_size,

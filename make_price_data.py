@@ -9,7 +9,8 @@ stride = 3
 lookahead = 10
 lookback = 5
 
-path = "price_data"
+#path = "price_data"
+path = "/home/leticia/datasets/crypto/price_data"
 coins = os.listdir(path)
 
 

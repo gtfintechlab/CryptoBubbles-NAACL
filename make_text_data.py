@@ -7,7 +7,7 @@ import pandas as pd
 import datetime
 import random
 import numpy as np
-from tqdm import tqdm_notebook
+from tqdm.notebook import tqdm_notebook
 import os
 import shutil
 import pandas as pd
@@ -99,10 +99,12 @@ c3 = []
 sss= 0
 
 
-for idx in tqdm_notebook(len(data)):
+for idx in tqdm_notebook(range(len(data))):
     sample = data[idx]
     coin = sample["coin_name"]
+    #print("coin: ", coin)
     date_list = sample["lookback_dates"]
+    #print(date_list)
     date_list.sort()
     embeddings = torch.zeros(15*lookback, 768)
     time_diff = torch.ones(15*lookback, 1)
@@ -113,7 +115,9 @@ for idx in tqdm_notebook(len(data)):
 
     for date in date_list:
         if f"{coin}_{date}" not in black_list:
-            date_path = f"tweet_data/{coin}/{date}.csv"
+            #date_path = f"tweet_data/{coin}/{date}.csv"
+            date_path = f"/home/leticia/datasets/crypto/tweets/{coin}/{date}.csv"
+            #print("date_path: ", date_path)
             if os.path.exists(date_path):
                 tweet_list= []
                 created_at = []
@@ -168,7 +172,9 @@ for idx in tqdm_notebook(len(data)):
                     time.extend(created_at_new)
                 else:
                     black_list.append(f"{coin}_{date}")
-
+            else:
+                print("I'm sorry I couldn't find this file: ", date_path)
+                #exit(0)
     if len(embeds) > 0:
         created_at = np.array(time)
         indices = np.argsort(created_at)

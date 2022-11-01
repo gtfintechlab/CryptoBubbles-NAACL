@@ -49,14 +49,29 @@ class BubbleDatav2(Dataset):
         self.load_embeds = load_embeds
         with open(price_data_path, "rb") as f:
             self.data = pkl.load(f)
-        assert len(os.listdir(self.folder_path)) == len(self.data)
-
-    def __getitem__(self, idx):
-        data_dict = self.data[idx]
+        #assert len(os.listdir(self.folder_path)) == len(self.data)
+        #assert len(self.folder_path) == len(self.data)
+        #print(self.data[0])
 
         if self.load_embeds:
-            with open(f"{self.folder_path}/{idx}.pkl", "rb") as f:
-                embed_data = pkl.load(f)
+            
+            #with open(f"{self.folder_path}/{idx}.pkl", "rb") as f:
+            with open(self.folder_path, "rb") as f:    
+                self.embed_data = pkl.load(f)
+
+    def __getitem__(self, idx):
+        
+        #print('idx: ', idx)
+        #exit(0)
+        data_dict = self.data[idx]
+        
+        #print('self.folder_path: ', self.folder_path, ', idx: ', idx)
+        #print(self.data[idx])
+        #print(self.data[idx]['embeddings'])
+        if self.load_embeds:
+            embed_data =self.embed_data[idx]
+            #print('embed_data[idx]["embeddings"]: ', embed_data[idx]["embeddings"])
+            
             return (embed_data["embeddings"],
                     torch.tensor(data_dict["lookahead_starts"]),
                     torch.tensor(data_dict["lookahead_ends"]),
